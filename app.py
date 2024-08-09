@@ -14,11 +14,11 @@ model = load_model('cd_model.h5')
 
 # Set up the Streamlit app title
 # st.title("Dog vs Cat Classifier")
+
 st.title("Dog vs Cat Classifier")
 
 # File uploader for image input
-# uploaded_file = st.file_uploader("Choose an image...", type="jpg")
-uploaded_file = st.file_uploader("Upload an image...", type=["jpg", "jpeg", "png"])
+uploaded_file = st.file_uploader("Choose an image...", type="jpg")
 
 if uploaded_file is not None:
     # Open the uploaded image
@@ -26,13 +26,11 @@ if uploaded_file is not None:
     col1, col2 = st.columns(2)
 
     with col1:
-        resized_img = image.resize((100, 100))
+        resized_img = image.resize((150, 150))
         st.image(resized_img)
     
     # Display the image
     # st.image(image, caption='Uploaded Image.', use_column_width=True)
-
-    
     
     # Preprocess the image
     image = image.resize((256, 256))  # Resize the image to match the input shape
